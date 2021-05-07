@@ -3,9 +3,9 @@
     "scope": "typescriptreact",
     "prefix": "rfc",
     "body": [
-      "export type Props = {};",
+      "export type ${TM_FILENAME_BASE}Props = {};",
       "",
-      "export default function ${TM_FILENAME_BASE}({}: Props) {",
+      "export default function ${TM_FILENAME_BASE}({}: ${TM_FILENAME_BASE}Props) {",
       "  return (${0});",
       "}"
     ],

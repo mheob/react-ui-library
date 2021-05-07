@@ -2,13 +2,13 @@
   "Inserts styled component": {
     "scope": "javascriptreact,typescriptreact",
     "prefix": "sc",
-    "body": ["const ${1} = styled.${2}`", "  ${3}", "`;"],
+    "body": ["const ${1} = styled.${2}`", "  ${0}", "`;"],
     "description": "Inserts styled component"
   },
   "Inserts styled components media query": {
     "scope": "css",
     "prefix": "scMediaQuery",
-    "body": ["${mediaQuery('${1}')} {", "  ${2}", "}"],
+    "body": ["${mediaQuery('${1}')} {", "  ${0}", "}"],
     "description": "Inserts styled components media query"
   },
   "Inserts styled components theme prop": {

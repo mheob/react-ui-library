@@ -14,13 +14,13 @@
   "Inserts useState hook": {
     "scope": "javascriptreact,typescriptreact",
     "prefix": "ush",
-    "body": "const [${1}, set${1/(.)/${1:/upcase}/}] = useState(${2});",
+    "body": "const [${1}, set${1/(.)/${1:/upcase}/}] = useState(${0});",
     "description": "Inserts useState hook"
   },
   "Inserts useRef hook": {
     "scope": "javascriptreact,typescriptreact",
     "prefix": "ureh",
-    "body": ["const ${1}Ref = useRef(${2});"],
+    "body": ["const ${1}Ref = useRef(${0});"],
     "description": "Inserts useRef hook"
   },
   "Inserts useRouter hook": {
