@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { BrandedSwitch } from './Switch.styles'
+import { StyledSwitch } from './Switch.styles'
 
 export type SwitchProps = {
   /**
@@ -33,5 +33,5 @@ export default function Switch({ isChecked = false, isDisabled = false, onChange
     setIsActive(!isActive)
   }
 
-  return <BrandedSwitch checked={isActive} disabled={isDisabled} onChange={handleChange} />
+  return <StyledSwitch checked={isActive} disabled={isDisabled} onChange={handleChange} />
 }

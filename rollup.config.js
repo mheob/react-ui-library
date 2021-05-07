@@ -11,7 +11,7 @@ import packageJson from './package.json'
 // The regex removes a starting scope (e.g. `@mheob/`)
 // and convert the string from kebab-case to camelCase
 const moduleName = packageJson.name.replace(/^@.*\//, '').replace(/-./g, (s) => s.toUpperCase()[1])
-const inputFileName = './components/index.ts'
+const inputFileName = 'src/components/index.ts'
 const extensions = ['.js', '.jsx', '.ts', '.tsx']
 
 const external = [

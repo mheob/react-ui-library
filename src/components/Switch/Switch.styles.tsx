@@ -1,7 +1,7 @@
 import { Switch } from '@material-ui/core'
 import { lighten, withStyles } from '@material-ui/core/styles'
 
-export const BrandedSwitch = withStyles({
+export const StyledSwitch = withStyles({
   switchBase: {
     color: lighten('#0299a2', 0.7),
     '& + $track': {
