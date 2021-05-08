@@ -1,18 +1,5 @@
 module.exports = {
-  presets: [
-    '@babel/preset-typescript',
-    '@babel/preset-react',
-    [
-      '@babel/env',
-      {
-        modules: false,
-        targets: {
-          node: '14',
-          browsers: ['last 2 versions'],
-        },
-      },
-    ],
-  ],
+  presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
   plugins: [
     // The `loose` option fixes output warnings of storybook
     ['@babel/plugin-proposal-class-properties', { loose: true }],

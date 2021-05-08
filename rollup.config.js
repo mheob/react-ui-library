@@ -4,47 +4,31 @@ import babel from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
 import nodeResolve from '@rollup/plugin-node-resolve'
 import typescript from '@rollup/plugin-typescript'
+import filesize from 'rollup-plugin-filesize'
 import { terser } from 'rollup-plugin-terser'
 
 import packageJson from './package.json'
 
-// The regex removes a starting scope (e.g. `@mheob/`)
-// and convert the string from kebab-case to camelCase
-const moduleName = packageJson.name.replace(/^@.*\//, '').replace(/-./g, (s) => s.toUpperCase()[1])
 const inputFileName = 'src/components/index.ts'
-const extensions = ['.js', '.jsx', '.ts', '.tsx']
 
 const external = [
-  ...Object.keys(packageJson.dependencies || {}),
-  ...Object.keys(packageJson.devDependencies || {}),
+  // ...Object.keys(packageJson.devDependencies || {}),
+  ...Object.keys(packageJson.peerDependencies || {}),
 ]
 
 const plugins = [
   typescript(),
-  commonjs({
-    extensions,
-  }),
+  commonjs({ extensions: ['.js', '.jsx', '.ts', '.tsx'] }),
   babel({
     babelHelpers: 'bundled',
     configFile: path.resolve(__dirname, '.babelrc.js'),
   }),
-  nodeResolve({
-    browser: true,
-  }),
+  nodeResolve({ browser: true }),
   terser(),
+  filesize({ showMinifiedSize: false }),
 ]
 
 export default [
-  {
-    input: inputFileName,
-    output: {
-      name: moduleName,
-      file: packageJson.browser,
-      format: 'iife',
-      sourcemap: true,
-    },
-    plugins,
-  },
   {
     input: inputFileName,
     output: {

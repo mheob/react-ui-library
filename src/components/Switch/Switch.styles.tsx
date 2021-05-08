@@ -1,5 +1,4 @@
-import { Switch } from '@material-ui/core'
-import { lighten, withStyles } from '@material-ui/core/styles'
+import { Switch, lighten, withStyles } from '@material-ui/core'
 
 export const StyledSwitch = withStyles({
   switchBase: {
