@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 
-import useWebFont from '../../hooks/useWebFont'
+import { useWebFont } from '../../hooks/useWebFont'
 import { ButtonInner, ButtonStylingProps, ButtonWrapper } from './Button.styles'
 
 export type ButtonProps = {
@@ -23,7 +23,7 @@ export type ButtonProps = {
  * - Cards
  * - Toolbars
  */
-export default function Button({
+export const Button = ({
   borderRadius = 2,
   buttonColor = '#02a2aa',
   children,
@@ -32,7 +32,7 @@ export default function Button({
   onClick,
   textColor = undefined,
   webFont,
-}: ButtonProps) {
+}: ButtonProps) => {
   if (webFont) useWebFont(webFont)
 
   const buttonStylingProps = { borderRadius, buttonColor, fontFamily, fontSize, onClick, textColor }

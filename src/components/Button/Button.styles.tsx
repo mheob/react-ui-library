@@ -1,21 +1,21 @@
+import styled from '@emotion/styled'
 import Color from 'color'
-import styled from 'styled-components'
 
-function convertBgColorFromStringToColor(buttonColor: string) {
+const convertBgColorFromStringToColor = (buttonColor: string) => {
   return Color(buttonColor)
 }
 
-function getValidatedTextColor(textColor: string | undefined, buttonColor: string) {
+const getValidatedTextColor = (textColor: string | undefined, buttonColor: string) => {
   const bgColor = convertBgColorFromStringToColor(buttonColor)
   return Color(textColor || (bgColor.isLight() ? '#000' : '#fff')).toString()
 }
 
-function getValidatedHoverBgColor(buttonColor: string) {
+const getValidatedHoverBgColor = (buttonColor: string) => {
   const bgColor = convertBgColorFromStringToColor(buttonColor)
   return Color(bgColor.isLight() ? bgColor.darken(0.05) : bgColor.lighten(0.05)).toString()
 }
 
-function getPadding(fontSize: number | string) {
+const getPadding = (fontSize: number | string) => {
   fontSize = typeof fontSize === 'number' ? fontSize : parseInt(fontSize)
   return fontSize + 'px ' + fontSize * 2 + 'px'
 }

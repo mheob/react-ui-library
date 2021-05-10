@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react/types-6-0'
 
-import Switch, { SwitchProps } from './Switch'
+import { Switch, SwitchProps } from './Switch'
 
 export default {
   title: 'Testing/Components/Switch',

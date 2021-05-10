@@ -8,7 +8,7 @@ export type Switch2Props = {
   onClick: (isActive: boolean) => void
 }
 
-export default function Switch2({ isActive = false, isDisabled = false, onClick }: Switch2Props) {
+export const Switch2 = ({ isActive = false, isDisabled = false, onClick }: Switch2Props) => {
   const [isChecked, setIsChecked] = useState(isActive)
 
   const handleClick = () => {

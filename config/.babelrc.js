@@ -1,10 +1,11 @@
 module.exports = {
-  presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
+  presets: [
+    '@babel/preset-env',
+    '@babel/preset-typescript',
+    ['@babel/preset-react', { runtime: 'automatic', importSource: '@emotion/react' }],
+  ],
   plugins: [
-    // The `loose` option fixes output warnings of storybook
-    ['@babel/plugin-proposal-class-properties', { loose: true }],
-    ['@babel/plugin-proposal-private-methods', { loose: true }],
-    ['@babel/plugin-proposal-private-property-in-object', { loose: true }],
+    '@emotion',
     [
       'babel-plugin-transform-imports',
       {
@@ -15,5 +16,9 @@ module.exports = {
         },
       },
     ],
+    // The `loose` option fixes output warnings of storybook
+    ['@babel/plugin-proposal-class-properties', { loose: true }],
+    ['@babel/plugin-proposal-private-methods', { loose: true }],
+    ['@babel/plugin-proposal-private-property-in-object', { loose: true }],
   ],
 }

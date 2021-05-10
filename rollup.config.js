@@ -11,17 +11,14 @@ import packageJson from './package.json'
 
 const inputFileName = 'src/components/index.ts'
 
-const external = [
-  // ...Object.keys(packageJson.devDependencies || {}),
-  ...Object.keys(packageJson.peerDependencies || {}),
-]
+const external = Object.keys(packageJson.devDependencies || {})
 
 const plugins = [
   typescript(),
   commonjs({ extensions: ['.js', '.jsx', '.ts', '.tsx'] }),
   babel({
     babelHelpers: 'bundled',
-    configFile: path.resolve(__dirname, '.babelrc.js'),
+    configFile: path.resolve(__dirname, 'config', '.babelrc.js'),
   }),
   nodeResolve({ browser: true }),
   terser(),

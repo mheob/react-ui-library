@@ -24,7 +24,7 @@ export type SwitchProps = {
  * The option that the switch controls, as well as the state it’s in,
  * should be made clear from the corresponding inline label.
  */
-export default function Switch({ isChecked = false, isDisabled = false, onChange }: SwitchProps) {
+export const Switch = ({ isChecked = false, isDisabled = false, onChange }: SwitchProps) => {
   const [isActive, setIsActive] = useState(isChecked)
 
   const handleChange = () => {
