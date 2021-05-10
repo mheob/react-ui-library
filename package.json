@@ -14,10 +14,13 @@
     "prebuild:storybook": "rimraf storybook-static",
     "build:storybook": "build-storybook",
     "dev": "start-storybook -p 6006",
-    "format": "prettier --write . --loglevel warn --ignore-path '.gitignore'",
+    "format": "prettier --write . --loglevel warn --ignore-path config/.prettierignore",
     "lint": "yarn lint:js && yarn lint:style",
-    "lint:js": "eslint . --ext ts --ext tsx --ext js",
-    "lint:style": "stylelint '**/*.{css,scss,js,ts,tsx}'"
+    "lint:js": "eslint . --ext ts --ext tsx --ext js --ignore-path config/.eslintignore",
+    "lint:style": "stylelint **/*.{css,scss,js,ts,tsx} --ignore-path config/.stylelintignore"
+  },
+  "babel": {
+    "extends": "./config/.babelrc.js"
   },
   "browserslist": [
     "> 1% in DE",
@@ -25,6 +28,13 @@
     "Firefox ESR",
     "not dead"
   ],
+  "prettier": "./config/.prettierrc.js",
+  "eslintConfig": {
+    "extends": "./config/.eslintrc.js"
+  },
+  "stylelint": {
+    "extends": "./config/.stylelintrc.js"
+  },
   "resolutions": {
     "styled-components": "^5"
   },
@@ -65,7 +75,7 @@
     "eslint-plugin-react": "^7.23.2",
     "import-sort": "^6.0.0",
     "import-sort-parser-typescript": "^6.0.0",
-    "prettier": "^2.2.1",
+    "prettier": "^2.3.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "rimraf": "^3.0.2",
@@ -81,8 +91,20 @@
     "typescript": "^4.2.4"
   },
   "peerDependencies": {
+    "@material-ui/core": "^4.11.0",
     "react": ">=16.13.0 <18.0.0",
-    "styled-components": "^5.3.0",
-    "@material-ui/core": "^4.11.0"
+    "styled-components": "^5.3.0"
+  },
+  "importSort": {
+    ".js, .jsx, .es6, .es": {
+      "parser": "babylon",
+      "style": "module",
+      "options": {}
+    },
+    ".ts, .tsx": {
+      "parser": "typescript",
+      "style": "module",
+      "options": {}
+    }
   }
 }
