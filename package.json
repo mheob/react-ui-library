@@ -10,7 +10,6 @@
     "deploy": "yarn workspaces run deploy",
     "prebuild": "yarn workspaces run prebuild",
     "build": "yarn workspaces run build",
-    "bundle-size": "yarn workspaces run bundle-size",
     "lint": "yarn workspaces run lint",
     "test": "yarn workspaces run test",
     "test:cov": "yarn workspaces run test:cov",
