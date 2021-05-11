@@ -1,7 +1,9 @@
+const configOverwrites = require('./webpack.config')
+
 module.exports = {
   stories: [
-    '../src/components/**/*.stories.mdx',
-    '../src/components/**/*.stories.@(js|jsx|ts|tsx)',
+    '../packages/**/stories/*.stories.mdx',
+    '../packages/**/stories/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
   typescript: {
@@ -13,4 +15,9 @@ module.exports = {
       },
     },
   },
+  // i: Overwriting webpack is only a workaround to get `Emotion` running
+  webpackFinal: async (config) => ({
+    ...config,
+    resolve: { ...config.resolve, alias: configOverwrites.resolve.alias },
+  }),
 }

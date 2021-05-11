@@ -1,30 +1,27 @@
 {
   "name": "react-ui-library",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "private": true,
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.es.js",
-  "files": [
-    "dist"
+  "workspaces": [
+    "packages/*"
   ],
   "scripts": {
-    "prebuild": "rimraf dist",
-    "build": "rollup -c",
-    "bundle-size": "cat dist/index.cjs.js | gzip | wc -c",
-    "prebuild:storybook": "rimraf storybook-static",
-    "build:storybook": "build-storybook",
+    "deploy": "yarn workspaces run deploy",
+    "prebuild": "yarn workspaces run prebuild",
+    "build": "yarn workspaces run build",
+    "bundle-size": "yarn workspaces run bundle-size",
+    "format": "yarn workspaces run format",
+    "lint": "yarn workspaces run lint",
+    "test": "yarn workspaces run test",
+    "test:cov": "yarn workspaces run test:cov",
+    "test:watch": "yarn workspaces run test:watch",
     "dev": "start-storybook -p 6006",
-    "format": "prettier --write . --loglevel warn --ignore-path config/.prettierignore",
-    "lint": "yarn lint:js && yarn lint:style",
-    "lint:js": "eslint . --ext ts --ext tsx --ext js --ignore-path config/.eslintignore",
-    "lint:style": "stylelint **/*.{css,scss,js,ts,tsx} --ignore-path config/.stylelintignore"
-  },
-  "babel": {
-    "extends": "./config/.babelrc.js"
+    "prebuild:storybook": "rimraf storybook-static",
+    "build:storybook": "build-storybook"
   },
   "browserslist": [
-    "> 1% in DE",
-    "last 2 versions",
+    "> 2% in DE",
+    "last 3 versions",
     "Firefox ESR",
     "not dead"
   ],
@@ -35,39 +32,27 @@
   "stylelint": {
     "extends": "./config/.stylelintrc.js"
   },
-  "dependencies": {
-    "color": "^3.1.3",
-    "webfontloader": "^1.6.28"
-  },
   "devDependencies": {
+    "@babel/cli": "^7.13.16",
     "@babel/core": "^7.14.0",
     "@babel/preset-env": "^7.14.1",
     "@babel/preset-react": "^7.13.13",
     "@babel/preset-typescript": "^7.13.0",
-    "@emotion/babel-plugin": "^11.3.0",
-    "@emotion/react": "^11.4.0",
-    "@emotion/styled": "^11.3.0",
-    "@material-ui/core": "^4.11.4",
-    "@rollup/plugin-babel": "^5.3.0",
-    "@rollup/plugin-commonjs": "^19.0.0",
-    "@rollup/plugin-node-resolve": "^13.0.0",
-    "@rollup/plugin-typescript": "^8.2.1",
     "@storybook/addon-actions": "^6.2.9",
     "@storybook/addon-essentials": "^6.2.9",
     "@storybook/addon-links": "^6.2.9",
     "@storybook/node-logger": "^6.2.9",
     "@storybook/preset-create-react-app": "^3.1.7",
     "@storybook/react": "^6.2.9",
-    "@types/color": "^3.0.1",
     "@types/jest": "^26.0.23",
     "@types/node": "^15.0.2",
     "@types/react": "^17.0.5",
     "@types/react-dom": "^17.0.3",
-    "@types/webfontloader": "^1.6.32",
     "@typescript-eslint/eslint-plugin": "^4.22.1",
     "@typescript-eslint/parser": "^4.22.1",
     "babel-loader": "^8.2.2",
-    "babel-plugin-transform-imports": "^2.0.0",
+    "concurrently": "^6.1.0",
+    "cross-env": "^7.0.3",
     "eslint": "^7.26.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
@@ -79,20 +64,17 @@
     "react-dom": "^17.0.2",
     "rimraf": "^3.0.2",
     "rollup": "^2.47.0",
-    "rollup-plugin-filesize": "^9.1.1",
-    "rollup-plugin-terser": "^7.0.2",
     "stylelint": "^13.13.1",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-recommended": "^5.0.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-order": "^4.1.0",
+    "ts-node": "^9.1.1",
+    "tslib": "^2.2.0",
     "typescript": "^4.2.4"
   },
-  "peerDependencies": {
-    "@emotion/react": "^11.4.0",
-    "@emotion/styled": "^11.3.0",
-    "@material-ui/core": "^4.11.0",
-    "react": ">=16.13.0 <18.0.0"
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "importSort": {
     ".js, .jsx, .es6, .es": {
