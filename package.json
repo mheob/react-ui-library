@@ -24,7 +24,8 @@
     "prebuild:storybook": "rimraf storybook-static",
     "build:storybook": "build-storybook",
     "changeset": "changeset",
-    "changeset:version-and-format": "changeset version && prettier --write --parser json '**/package.json' && npx sort-package-json"
+    "changeset:version-and-format": "changeset version && prettier --write --parser json '**/package.json' && npx sort-package-json",
+    "sort-package-json": "npx sort-package-json"
   },
   "commitlint": {
     "extends": "@commitlint/config-conventional"
