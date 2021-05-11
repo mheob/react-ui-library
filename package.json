@@ -6,18 +6,31 @@
     "packages/*"
   ],
   "scripts": {
+    "prepare": "husky install config/husky",
     "deploy": "yarn workspaces run deploy",
     "prebuild": "yarn workspaces run prebuild",
     "build": "yarn workspaces run build",
     "bundle-size": "yarn workspaces run bundle-size",
-    "format": "yarn workspaces run format",
     "lint": "yarn workspaces run lint",
     "test": "yarn workspaces run test",
     "test:cov": "yarn workspaces run test:cov",
     "test:watch": "yarn workspaces run test:watch",
+    "format": "concurrently yarn:format:*",
+    "format:js": "prettier --write '**/*.{js,jsx,ts,tsx}' --ignore-path 'config/.prettierignore'",
+    "format:json": "prettier --write --parser json '**/*.json' --ignore-path 'config/.prettierignore'",
+    "format:md": "prettier --write --parser markdown '**/*.md' --ignore-path 'config/.prettierignore'",
+    "format:yaml": "prettier --write --parser yaml '**/*.{yaml,yml}' --ignore-path 'config/.prettierignore'",
     "dev": "start-storybook -p 6006",
     "prebuild:storybook": "rimraf storybook-static",
-    "build:storybook": "build-storybook"
+    "build:storybook": "build-storybook",
+    "changeset": "changeset",
+    "changeset:version-and-format": "changeset version && prettier --write --parser json '**/package.json' && npx sort-package-json"
+  },
+  "commitlint": {
+    "extends": "@commitlint/config-conventional"
+  },
+  "lint-staged": {
+    "extends": "./config/.lintstagedrc.js"
   },
   "browserslist": [
     "> 2% in DE",
@@ -32,12 +45,16 @@
   "stylelint": {
     "extends": "./config/.stylelintrc.js"
   },
-  "devDependencies": {
+  "dependencies": {
     "@babel/cli": "^7.13.16",
     "@babel/core": "^7.14.0",
     "@babel/preset-env": "^7.14.1",
     "@babel/preset-react": "^7.13.13",
     "@babel/preset-typescript": "^7.13.0",
+    "@changesets/changelog-github": "^0.4.0",
+    "@changesets/cli": "^2.16.0",
+    "@commitlint/cli": "^12.1.1",
+    "@commitlint/config-conventional": "^12.1.1",
     "@storybook/addon-actions": "^6.2.9",
     "@storybook/addon-essentials": "^6.2.9",
     "@storybook/addon-links": "^6.2.9",
@@ -57,13 +74,14 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.23.2",
+    "husky": "^6.0.0",
     "import-sort": "^6.0.0",
     "import-sort-parser-typescript": "^6.0.0",
+    "lint-staged": "^11.0.0",
     "prettier": "^2.3.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "rimraf": "^3.0.2",
-    "rollup": "^2.47.0",
     "stylelint": "^13.13.1",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-recommended": "^5.0.0",
