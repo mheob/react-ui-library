@@ -2,9 +2,7 @@
   "name": "react-ui-library",
   "version": "0.0.0",
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": ["packages/*"],
   "scripts": {
     "prepare": "husky install config/husky",
     "deploy": "yarn workspaces run deploy",
@@ -22,9 +20,8 @@
     "dev": "start-storybook -p 6006",
     "prebuild:storybook": "rimraf storybook-static",
     "build:storybook": "build-storybook",
-    "changeset": "changeset",
-    "changeset:version-and-format": "changeset version && prettier --write --parser json '**/package.json' && npx sort-package-json",
-    "sort-package-json": "npx sort-package-json"
+    "release": "changeset publish",
+    "version": "changeset version && yarn format:yaml"
   },
   "commitlint": {
     "extends": "@commitlint/config-conventional"
@@ -32,12 +29,7 @@
   "lint-staged": {
     "extends": "./config/.lintstagedrc.js"
   },
-  "browserslist": [
-    "> 2% in DE",
-    "last 3 versions",
-    "Firefox ESR",
-    "not dead"
-  ],
+  "browserslist": ["> 2% in DE", "last 3 versions", "Firefox ESR", "not dead"],
   "prettier": "./config/.prettierrc.js",
   "eslintConfig": {
     "extends": "./config/.eslintrc.js"

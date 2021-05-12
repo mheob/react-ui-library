@@ -2,14 +2,7 @@
   "name": "@mheob/button",
   "version": "0.0.0",
   "description": "A React component that is a base button.",
-  "keywords": [
-    "easyfeedback",
-    "button",
-    "button-group",
-    "react",
-    "component",
-    "clickable"
-  ],
+  "keywords": ["easyfeedback", "button", "button-group", "react", "component", "clickable"],
   "homepage": "https://github.com/mheob/react-ui-library#readme",
   "bugs": {
     "url": "https://github.com/mheob/react-ui-library/issues"
@@ -30,9 +23,7 @@
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
   "typings": "dist/types/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "deploy": "yarn publish",
     "prebuild": "rimraf dist",

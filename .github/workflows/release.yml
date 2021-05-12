@@ -48,20 +48,17 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@master
         with:
-          # Pass a personal access token (using our `ct-release-bot` account) to be able to trigger
-          # other workflows
-          # https://help.github.com/en/actions/reference/events-that-trigger-workflows#triggering-new-workflows-using-a-personal-access-token
-          # https://github.community/t/action-does-not-trigger-another-on-push-tag-action/17148/8
-          token: ${{ secrets.GH_RELEASE_TOKEN }}
+          # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
+          fetch-depth: 0
 
       - name: Read .nvmrc
         run: echo ::set-output name=NVMRC::$(cat .nvmrc)
         id: nvm
 
       - name: Setup Node (uses version in .nvmrc)
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@master
         with:
           node-version: '${{ steps.nvm.outputs.NVMRC }}'
 
@@ -70,7 +67,7 @@ jobs:
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
       - name: Load yarn cache
-        uses: actions/cache@v2
+        uses: actions/cache@master
         with:
           path: ${{ steps.yarn-cache.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
@@ -100,8 +97,9 @@ jobs:
         id: changesets
         uses: changesets/action@master
         with:
+          title: 'ci(changesets): version packages'
           commit: 'ci(changesets): version packages'
-          publish: yarn changeset publish
-          version: yarn changeset:version-and-format
+          publish: yarn release
+          version: yarn version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
