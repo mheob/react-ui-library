@@ -6,94 +6,25 @@ on:
       - main
 
 jobs:
-  run-linters:
-    name: Run linters
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Read .nvmrc
-        run: echo ::set-output name=NVMRC::$(cat .nvmrc)
-        id: nvm
-
-      - name: Setup Node (uses version in .nvmrc)
-        uses: actions/setup-node@v2
-        with:
-          node-version: '${{ steps.nvm.outputs.NVMRC }}'
-
-      - name: Get yarn cache
-        id: yarn-cache
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: Load yarn cache
-        uses: actions/cache@v2
-        with:
-          path: ${{ steps.yarn-cache.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-
-      - name: Lint types and code
-        run: yarn lint
-
   release:
     name: Release
-    needs: run-linters
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
+      - name: Checkout Repo
         uses: actions/checkout@master
         with:
           # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
           fetch-depth: 0
 
-      - name: Read .nvmrc
-        run: echo ::set-output name=NVMRC::$(cat .nvmrc)
-        id: nvm
-
-      - name: Setup Node (uses version in .nvmrc)
+      - name: Setup Node.js 12.x
         uses: actions/setup-node@master
         with:
-          node-version: '${{ steps.nvm.outputs.NVMRC }}'
-          registry-url: 'https://npm.pkg.github.com'
-          scope: '@mheob-ui'
+          node-version: 12.x
 
-      - name: Get yarn cache
-        id: yarn-cache
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Install Dependencies
+        run: yarn
 
-      - name: Load yarn cache
-        uses: actions/cache@master
-        with:
-          path: ${{ steps.yarn-cache.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-        env:
-          # https://github.com/bahmutov/cypress-gh-action-split-install/blob/ca3916d4e7240ebdc337825d2d78eb354855464b/.github/workflows/tests.yml#L14-L18
-          # https://github.com/marketplace/actions/cypress-io#custom-install
-          CYPRESS_INSTALL_BINARY: 0
-
-      - name: Build packages
-        run: yarn build
-
-      - name: Create Release Pull Request or Publish to npm
-        id: changesets
+      - name: Create Release Pull Request
         uses: changesets/action@master
-        with:
-          title: 'ci(changesets): version packages'
-          commit: 'ci(changesets): version packages'
-          publish: yarn release
-          version: yarn version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
