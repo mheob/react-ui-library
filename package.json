@@ -20,9 +20,8 @@
     "dev": "start-storybook -p 6006",
     "prebuild:storybook": "rimraf storybook-static",
     "build:storybook": "build-storybook",
-    "changeset": "yarn changeset:publish && yarn changeset:version",
-    "changeset:publish": "changeset publish",
-    "changeset:version": "changeset version"
+    "release": "changeset publish",
+    "version": "changeset version && yarn format:yaml"
   },
   "commitlint": {
     "extends": "@commitlint/config-conventional"
