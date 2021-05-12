@@ -53,8 +53,6 @@ jobs:
         uses: actions/setup-node@master
         with:
           node-version: 14.x
-          registry-url: https://npm.pkg.github.com
-          scope: '@${{ github.repository_owner }}'
 
       - name: Get yarn cache
         id: yarn-cache
