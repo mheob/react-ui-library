@@ -2,7 +2,9 @@
   "name": "react-ui-library",
   "version": "0.0.0",
   "private": true,
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "prepare": "husky install config/husky",
     "deploy": "yarn workspaces run deploy",
@@ -12,21 +14,21 @@
     "test": "yarn workspaces run test",
     "test:cov": "yarn workspaces run test:cov",
     "test:watch": "yarn workspaces run test:watch",
-    "format": "concurrently yarn:format:*",
-    "format:js": "prettier --write '**/*.{js,jsx,ts,tsx}' --ignore-path 'config/.prettierignore'",
-    "format:json": "prettier --write --parser json '**/*.json' --ignore-path 'config/.prettierignore'",
-    "format:md": "prettier --write --parser markdown '**/*.md' --ignore-path 'config/.prettierignore'",
-    "format:yaml": "prettier --write --parser yaml '**/*.{yaml,yml}' --ignore-path 'config/.prettierignore'",
+    "format": "prettier --write '**/*.{js,jsx,ts,tsx,json,md,yaml,yml}' --ignore-path 'config/.prettierignore'",
     "dev": "start-storybook -p 6006",
     "prebuild:storybook": "rimraf storybook-static",
     "build:storybook": "build-storybook",
-    "changeset": "changeset",
-    "version": "changeset version && yarn format:json & yarn format:yaml"
+    "changeset": "changeset"
   },
   "lint-staged": {
     "extends": "./config/.lintstagedrc.js"
   },
-  "browserslist": ["> 2% in DE", "last 3 versions", "Firefox ESR", "not dead"],
+  "browserslist": [
+    "> 2% in DE",
+    "last 3 versions",
+    "Firefox ESR",
+    "not dead"
+  ],
   "prettier": "./config/.prettierrc.js",
   "eslintConfig": {
     "extends": "./config/.eslintrc.js"

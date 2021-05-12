@@ -2,7 +2,12 @@
   "name": "@mheob/hooks",
   "version": "0.0.0",
   "description": "React hooks for the easyfeedback components.",
-  "keywords": ["easyfeedback", "hooks", "react", "utilities"],
+  "keywords": [
+    "easyfeedback",
+    "hooks",
+    "react",
+    "utilities"
+  ],
   "homepage": "https://github.com/mheob/react-ui-library#readme",
   "bugs": {
     "url": "https://github.com/mheob/react-ui-library/issues"
@@ -23,7 +28,9 @@
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
   "typings": "dist/types/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "deploy": "yarn publish",
     "prebuild": "rimraf dist",

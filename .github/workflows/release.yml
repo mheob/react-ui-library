@@ -53,6 +53,8 @@ jobs:
         uses: actions/setup-node@master
         with:
           node-version: 14.x
+          registry-url: https://npm.pkg.github.com
+          scope: '@${{ github.repository_owner }}'
 
       - name: Get yarn cache
         id: yarn-cache
@@ -75,5 +77,8 @@ jobs:
 
       - name: Create Release Pull Request
         uses: changesets/action@master
+        with:
+          publish: yarn changeset publish
+          version: yarn changeset version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
