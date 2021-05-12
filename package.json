@@ -21,8 +21,7 @@
     "prebuild:storybook": "rimraf storybook-static",
     "build:storybook": "build-storybook",
     "changeset": "changeset",
-    "release": "changeset publish",
-    "version": "changeset version && yarn format:yaml"
+    "version": "changeset version && yarn format:json & yarn format:yaml"
   },
   "lint-staged": {
     "extends": "./config/.lintstagedrc.js"
