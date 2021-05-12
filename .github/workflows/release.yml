@@ -61,6 +61,8 @@ jobs:
         uses: actions/setup-node@master
         with:
           node-version: '${{ steps.nvm.outputs.NVMRC }}'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@mheob-ui'
 
       - name: Get yarn cache
         id: yarn-cache
@@ -81,15 +83,6 @@ jobs:
           # https://github.com/marketplace/actions/cypress-io#custom-install
           CYPRESS_INSTALL_BINARY: 0
 
-      - name: Create .npmrc
-        run: |
-          cat << EOF > "$HOME/.npmrc"
-            @${{ github.repository_owner }}:registry=https://npm.pkg.github.com
-            //npm.pkg.github.com/:_authToken=$GH_PACKAGES_TOKEN
-          EOF
-        env:
-          GH_PACKAGES_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
-
       - name: Build packages
         run: yarn build
 
@@ -103,3 +96,4 @@ jobs:
           version: yarn version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
