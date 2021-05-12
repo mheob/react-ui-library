@@ -24,9 +24,6 @@
     "release": "changeset publish",
     "version": "changeset version && yarn format:yaml"
   },
-  "commitlint": {
-    "extends": "@commitlint/config-conventional"
-  },
   "lint-staged": {
     "extends": "./config/.lintstagedrc.js"
   },
@@ -46,8 +43,6 @@
     "@babel/preset-typescript": "^7.13.0",
     "@changesets/changelog-github": "^0.4.0",
     "@changesets/cli": "^2.16.0",
-    "@commitlint/cli": "^12.1.3",
-    "@commitlint/config-conventional": "^12.1.3",
     "@storybook/addon-actions": "^6.2.9",
     "@storybook/addon-essentials": "^6.2.9",
     "@storybook/addon-links": "^6.2.9",
