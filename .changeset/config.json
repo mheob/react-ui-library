@@ -1,11 +1,6 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@1.6.0/schema.json",
-  "changelog": [
-    "@changesets/changelog-github",
-    {
-      "repo": "mheob/react-ui-library"
-    }
-  ],
+  "changelog": ["@changesets/changelog-github", { "repo": "mheob/react-ui-library" }],
   "commit": false,
   "linked": [],
   "access": "restricted",

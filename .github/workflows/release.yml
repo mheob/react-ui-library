@@ -100,8 +100,9 @@ jobs:
         id: changesets
         uses: changesets/action@master
         with:
+          title: 'ci(changesets): version packages'
           commit: 'ci(changesets): version packages'
-          publish: yarn changeset publish
-          version: yarn changeset:version-and-format
+          publish: yarn changeset:publish
+          version: yarn changeset:version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
