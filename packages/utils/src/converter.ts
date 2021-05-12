@@ -1,5 +1,5 @@
 /**
- * Splits a size into its value and the unit. If no unit is given, `px` will returned.
+ * Splits a size (e.g. 1.5rem) into its value and the unit. If no unit is given, `px` will returned.
  * @param size The size which should split
  * @returns The size as number and the unit
  */
