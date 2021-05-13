@@ -8,7 +8,7 @@ export type ButtonProps = {
   children: ReactNode
 
   /** Perform the click event in the parent component. */
-  onClick: () => void
+  onClick?: () => void
 
   /** Use an optional web font from the google univers. */
   webFont?: string | string[]
@@ -38,7 +38,7 @@ export const Button = ({
   const buttonStylingProps = { borderRadius, buttonColor, fontFamily, fontSize, onClick, textColor }
 
   return (
-    <ButtonWrapper {...buttonStylingProps} onClick={onClick}>
+    <ButtonWrapper {...buttonStylingProps} {...(onClick ? { onClick: onClick } : {})}>
       <ButtonInner>{children}</ButtonInner>
     </ButtonWrapper>
   )
