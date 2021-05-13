@@ -9,6 +9,9 @@ yarn-error.log*
 **/dist/**
 **/storybook-static/**
 
+# test
+**/coverage/**
+
 # misc
 .DS_Store
 .env*
