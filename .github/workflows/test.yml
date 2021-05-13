@@ -63,6 +63,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
       - name: Run jest
         env:
           CI: true
