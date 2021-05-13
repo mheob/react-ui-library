@@ -6,13 +6,16 @@
     "packages/*"
   ],
   "scripts": {
+    "pkg": "manypkg run",
+    "boot": "yarn && yarn bootstrap",
+    "bootstrap": "lerna bootstrap",
     "prepare": "husky install config/husky",
     "prebuild": "yarn clean-dist",
     "build": "lerna run build --stream",
     "prebuild:storybook": "rimraf storybook-static",
     "build:storybook": "build-storybook",
-    "start": "start-storybook -p 6006",
     "dev": "start-storybook -p 6006",
+    "start": "start-storybook -p 6006",
     "clean": "lerna clean --yes && rimraf node_modules",
     "clean-dist": "lerna exec -- rimraf dist",
     "format": "prettier --write '**/*.{js,jsx,ts,tsx,json,md,yaml,yml}' --ignore-path ./config/.prettierignore",
@@ -20,10 +23,10 @@
     "test": "jest --env=jsdom --passWithNoTests --maxWorkers=50%",
     "test:ci": "jest --runInBand",
     "test:ci:cov": "yarn test:ci --coverage",
-    "test:cov": "yarn test --maxWorkers=50% --coverage",
+    "test:cov": "yarn test --coverage",
     "test:watch": "yarn test --watch -u",
-    "bootstrap": "lerna bootstrap --use-workspaces",
-    "changeset": "changeset"
+    "changeset": "changeset",
+    "release": "changeset publish"
   },
   "lint-staged": {
     "extends": "./config/.lintstagedrc.js"
@@ -43,12 +46,13 @@
   },
   "dependencies": {
     "@babel/cli": "^7.13.16",
-    "@babel/core": "^7.14.0",
-    "@babel/preset-env": "^7.14.1",
+    "@babel/core": "^7.14.2",
+    "@babel/preset-env": "^7.14.2",
     "@babel/preset-react": "^7.13.13",
     "@babel/preset-typescript": "^7.13.0",
     "@changesets/changelog-github": "^0.4.0",
     "@changesets/cli": "^2.16.0",
+    "@manypkg/cli": "^0.17.0",
     "@storybook/addon-actions": "^6.2.9",
     "@storybook/addon-essentials": "^6.2.9",
     "@storybook/addon-links": "^6.2.9",
@@ -71,6 +75,9 @@
     "husky": "^6.0.0",
     "import-sort": "^6.0.0",
     "import-sort-parser-typescript": "^6.0.0",
+    "jest": "^26.6.3",
+    "jest-environment-jsdom": "^26.6.2",
+    "jest-watch-typeahead": "^0.6.3",
     "lerna": "^4.0.0",
     "lint-staged": "^11.0.0",
     "prettier": "^2.3.0",
@@ -82,6 +89,7 @@
     "stylelint-config-recommended": "^5.0.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-order": "^4.1.0",
+    "ts-jest": "^26.5.6",
     "ts-node": "^9.1.1",
     "tslib": "^2.2.0",
     "typescript": "^4.2.4"
