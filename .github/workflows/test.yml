@@ -1,27 +1,24 @@
-name: Lint
+name: Test CI
 
 on:
+  pull_request:
   push:
     branches:
       - '!main'
 
 jobs:
-  run-linters:
-    name: Run linters
+  lint:
+    name: Run linter
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout Repo
         uses: actions/checkout@v2
 
-      - name: Read .nvmrc
-        run: echo ::set-output name=NVMRC::$(cat .nvmrc)
-        id: nvm
-
-      - name: Setup Node (uses version in .nvmrc)
+      - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '${{ steps.nvm.outputs.NVMRC }}'
+          node-version: 14.x
 
       - name: Get yarn cache
         id: yarn-cache
@@ -40,3 +37,40 @@ jobs:
 
       - name: Lint types and code
         run: yarn lint
+
+  test:
+    name: Run tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+
+      - name: Get yarn cache
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Load yarn cache
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Run jest
+        env:
+          CI: true
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_ICU_DATA: node_modules/full-icu
+        run: yarn run test:ci:cov
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
