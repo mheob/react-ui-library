@@ -49,6 +49,11 @@ jobs:
           # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
           fetch-depth: 0
 
+      - name: Setup CI Git User
+        run: |
+          git config --global user.email "mheob@users.noreply.github.com"
+          git config --global user.name "Alexander Böhm"
+
       - name: Setup Node.js
         uses: actions/setup-node@master
         with:
@@ -74,6 +79,9 @@ jobs:
           # https://github.com/bahmutov/cypress-gh-action-split-install/blob/ca3916d4e7240ebdc337825d2d78eb354855464b/.github/workflows/tests.yml#L14-L18
           # https://github.com/marketplace/actions/cypress-io#custom-install
           CYPRESS_INSTALL_BINARY: 0
+
+      - name: Build packages
+        run: yarn build
 
       - name: Create Release Pull Request
         uses: changesets/action@master

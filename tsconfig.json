@@ -23,7 +23,7 @@
     "isolatedModules": true,
     "strictPropertyInitialization": true
   },
-  "include": ["packages", "src/utils/hooks"],
+  "include": ["packages"],
   "exclude": ["node_modules", "storybook-static"],
   "ts-node": {
     "compilerOptions": {
