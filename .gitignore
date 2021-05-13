@@ -1,16 +1,16 @@
 # node
 .npmrc
-**/node_modules/**
+node_modules
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
 # production
-**/dist/**
-**/storybook-static/**
+dist
+storybook-static
 
 # test
-**/coverage/**
+coverage
 
 # misc
 .DS_Store
