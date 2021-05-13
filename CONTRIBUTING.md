@@ -7,6 +7,20 @@ Thanks for showing interest to contribute to our UI, you rock 🚀!
 When it comes to open source, there are different ways you can contribute, all of which are
 valuable. Here's a few guidelines that should help you as you prepare your contribution.
 
+## Table of Contents <!-- omit in toc -->
+
+- [Setup the Project](#setup-the-project)
+- [Development](#development)
+  - [Tooling](#tooling)
+  - [Commands](#commands)
+  - [Storybook](#storybook)
+- [Think you found a bug?](#think-you-found-a-bug)
+- [Proposing new or changed API?](#proposing-new-or-changed-api)
+  - [Commit Convention](#commit-convention)
+  - [Steps to PR](#steps-to-pr)
+  - [Tests](#tests)
+- [License](#license)
+
 ## Setup the Project
 
 The following steps will get you up and running to contribute to our UI:
