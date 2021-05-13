@@ -126,6 +126,7 @@ jobs:
       - name: Create Release Pull Request
         uses: changesets/action@master
         with:
+          commit: 'ci(changesets): version packages'
           publish: yarn changeset publish
           version: yarn changeset version
         env:
