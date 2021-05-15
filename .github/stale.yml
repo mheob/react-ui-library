@@ -12,8 +12,12 @@ staleLabel: wontfix
 markComment: >
   Hi!
 
-  This issue hasn't seen any activity recently. We close inactive issues after 90 days to manage the volume of issues we receive.
 
-  If we missed this issue or you want to keep it open, please reply here. That will reset the timer and allow more time for this issue to be addressed before it is closed.
+  This issue hasn't seen any activity recently. We close inactive issues after 90 days to manage the
+  volume of issues we receive.
+
+
+  If we missed this issue or you want to keep it open, please reply here. That will reset the timer
+  and allow more time for this issue to be addressed before it is closed.
 # Comment to post when closing a stale issue. Set to `false` to disable
 closeComment: false

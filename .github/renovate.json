@@ -1,0 +1,18 @@
+{
+  "extends": ["config:base"],
+  "timezone": "Europe/Berlin",
+  "schedule": ["after 7pm every weekday", "before 5am every weekday", "every weekend"],
+  "assignees": ["mheob"],
+  "reviewers": ["mheob"],
+  "labels": ["dependencies"],
+  "rangeStrategy": "replace",
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["*"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "all non-major dependencies",
+      "groupSlug": "all-minor-patch",
+      "automerge": true
+    }
+  ]
+}
