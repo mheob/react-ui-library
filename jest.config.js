@@ -4,6 +4,7 @@ module.exports = {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   modulePathIgnorePatterns: [
     '<rootDir>/storybook-static',
+    '<rootDir>/tools',
     '[/\\\\]dist[/\\\\].+\\.(js|jsx|ts|tsx)$',
   ],
   transform: {
