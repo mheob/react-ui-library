@@ -5,6 +5,9 @@
     },
     {
       "path": "packages"
+    },
+    {
+      "path": "tools"
     }
   ],
   "settings": {
