@@ -1,6 +1,9 @@
 name: Release
 
 on:
+  pull_request:
+    branches:
+      - main
   push:
     branches:
       - main
@@ -96,6 +99,7 @@ jobs:
         with:
           # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
           fetch-depth: 0
+          token: ${{ secrets.GH_RELEASE_TOKEN }}
 
       - name: Setup CI Git User
         run: |
@@ -135,7 +139,8 @@ jobs:
         uses: changesets/action@master
         with:
           commit: 'ci(changesets): version packages'
+          title: 'ci(changesets): version packages'
           publish: yarn changeset publish
           version: yarn changeset version
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_RELEASE_TOKEN }}
