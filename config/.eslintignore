@@ -4,3 +4,6 @@
 # production
 **/dist/**
 **/storybook-static/**
+
+# tempaltes
+**/template/**

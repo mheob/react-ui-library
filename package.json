@@ -16,7 +16,7 @@
     "build:storybook": "build-storybook",
     "dev": "start-storybook -p 6006",
     "start": "start-storybook -p 6006",
-    "clean": "lerna clean --yes && rimraf node_modules",
+    "clean": "lerna clean --yes && rimraf coverage dist node_modules",
     "clean-dist": "lerna exec -- rimraf dist",
     "format": "prettier --write '**/*.{js,jsx,ts,tsx,json,md,yaml,yml}' --ignore-path ./config/.prettierignore",
     "lint": "lerna run lint --stream",
