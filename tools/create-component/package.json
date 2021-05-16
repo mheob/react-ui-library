@@ -1,8 +1,8 @@
 {
-  "name": "@mheob/test-utils",
+  "name": "@mheob/create-component",
   "version": "0.0.0",
   "private": true,
-  "description": "Testing utilities for the components.",
+  "description": "Tool to create a new component.",
   "homepage": "https://github.com/mheob/react-ui-library#readme",
   "bugs": {
     "url": "https://github.com/mheob/react-ui-library/issues"
@@ -26,24 +26,18 @@
     "test:watch": "yarn test --watch -u"
   },
   "dependencies": {
-    "@testing-library/jest-dom": "^5.12.0",
-    "@testing-library/react": "^11.2.6",
-    "@testing-library/react-hooks": "^5.1.2",
-    "@testing-library/user-event": "^13.1.8",
-    "@types/jest-axe": "^3.5.1",
-    "jest-axe": "^4.1.0",
-    "react-test-renderer": "^17.0.2"
-  },
-  "devDependencies": {
-    "react": "^17.0.2"
-  },
-  "peerDependencies": {
-    "@emotion/react": "^11.4.0",
-    "@emotion/styled": "^11.3.0",
-    "react": ">=16.13.0 <18.0.0"
-  },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://npm.pkg.github.com"
+    "@types/fs-extra": "^9.0.11",
+    "@types/listr": "^0.14.3",
+    "@types/lodash": "^4.14.169",
+    "@types/mustache": "^4.1.1",
+    "@types/prompts": "^2.0.11",
+    "execa": "^5.0.0",
+    "fs-extra": "^10.0.0",
+    "glob": "^7.1.7",
+    "listr": "^0.14.3",
+    "lodash": "^4.17.21",
+    "mustache": "^4.2.0",
+    "prompts": "^2.4.1",
+    "yargs": "^17.0.1"
   }
 }

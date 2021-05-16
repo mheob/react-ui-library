@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "tools/*"
   ],
   "scripts": {
     "pkg": "manypkg run",
@@ -26,7 +27,8 @@
     "test:cov": "yarn test --coverage",
     "test:watch": "yarn test --watch -u",
     "changeset": "changeset",
-    "release": "changeset publish"
+    "release": "changeset publish",
+    "component:add": "ts-node ./tools/create-component"
   },
   "commitlint": {
     "extends": "@commitlint/config-conventional"
