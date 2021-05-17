@@ -8,7 +8,7 @@ module.exports = {
   modulePathIgnorePatterns: ['<rootDir>/storybook-static', '<rootDir>/tools'],
   transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$'],
   coveragePathIgnorePatterns: ['<rootDir>/storybook-static', '<rootDir>/tools'],
-  setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
+  setupFilesAfterEnv: ['./config/jest-setup.ts'],
   globals: {
     'ts-jest': {
       tsconfig: 'tsconfig.json',
