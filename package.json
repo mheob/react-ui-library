@@ -44,10 +44,10 @@
   ],
   "prettier": "./config/.prettierrc.json",
   "eslintConfig": {
-    "extends": "./config/.eslintrc"
+    "extends": "./config/.eslintrc.json"
   },
   "stylelint": {
-    "extends": "./config/.stylelintrc"
+    "extends": "./config/.stylelintrc.json"
   },
   "dependencies": {
     "@babel/cli": "^7.13.16",
