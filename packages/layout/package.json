@@ -1,20 +1,20 @@
 {
-  "name": "@mheob/{{name}}",
+  "name": "@mheob/layout",
   "version": "0.0.0",
-  "description": "{{description}}",
+  "description": "Layout components that give you massive speed",
   "keywords": [
     "easyfeedback"
   ],
-  "homepage": "{{{repositoryUrl}}}#readme",
+  "homepage": "https://github.com/mheob/react-ui-library#readme",
   "bugs": {
-    "url": "{{{repositoryUrl}}}/issues"
+    "url": "https://github.com/mheob/react-ui-library/issues"
   },
   "repository": {
     "type": "git",
-    "url": "{{{repositoryUrl}}}.git"
+    "url": "https://github.com/mheob/react-ui-library.git"
   },
   "license": "MIT",
-  "author": "{{author}}",
+  "author": "Alexander Böhm",
   "exports": {
     ".": {
       "require": "./dist/cjs/index.js",
@@ -42,6 +42,9 @@
     "test:ci:cov": "yarn test:ci --coverage",
     "test:cov": "yarn test --coverage",
     "test:watch": "yarn test --watch -u"
+  },
+  "dependencies": {
+    "react-transition-group": "^4.4.1"
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.3.0",
