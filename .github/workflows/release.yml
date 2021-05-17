@@ -80,7 +80,6 @@ jobs:
         env:
           CI: true
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NODE_ICU_DATA: node_modules/full-icu
         run: yarn run test:ci:cov
 
       - name: Upload coverage to Codecov
@@ -101,17 +100,10 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.GH_RELEASE_TOKEN }}
 
-      - name: Setup CI Git User
-        run: |
-          git config --global user.email "mheob@users.noreply.github.com"
-          git config --global user.name "Alexander Böhm"
-
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
           node-version: 14
-          registry-url: https://npm.pkg.github.com
-          scope: '@${{ github.repository_owner }}'
 
       - name: Get yarn cache
         id: yarn-cache
@@ -131,6 +123,14 @@ jobs:
           # https://github.com/bahmutov/cypress-gh-action-split-install/blob/ca3916d4e7240ebdc337825d2d78eb354855464b/.github/workflows/tests.yml#L14-L18
           # https://github.com/marketplace/actions/cypress-io#custom-install
           CYPRESS_INSTALL_BINARY: 0
+
+      - name: Creating .npmrc
+        run: |
+          cat << EOF > "$HOME/.npmrc"
+            //npm.pkg.github.com/:_authToken=$GH_RELEASE_TOKEN
+          EOF
+        env:
+          GH_RELEASE_TOKEN: ${{ secrets.GH_RELEASE_TOKEN }}
 
       - name: Build packages
         run: yarn build
