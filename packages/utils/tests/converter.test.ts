@@ -1,9 +1,9 @@
 import { separateSizeAndUnit } from '../src'
 
 describe('separateSizeAndUnit Method', () => {
-  it('should return a `size` of `12.5` and a `unit` of `rem` for the given string of `12.5rem`', () => {
-    const [size, unit] = separateSizeAndUnit('12.5rem')
-    expect(size).toBe(12.5)
+  it('should return a `size` of `2` and a `unit` of `rem` for the given string of `2rem`', () => {
+    const [size, unit] = separateSizeAndUnit('2rem')
+    expect(size).toBe(2)
     expect(unit).toBe('rem')
   })
 

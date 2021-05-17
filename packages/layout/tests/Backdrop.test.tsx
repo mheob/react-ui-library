@@ -22,7 +22,7 @@ describe('Backdrop component', () => {
     expect(getByTestId(/backdrop/i)).toHaveStyleRule('opacity', '0.9')
   })
 
-  it('has the style rule `position` with the value of absolute`', () => {
+  it('has the style rule `position` with the value of `absolute`', () => {
     const { getByTestId } = render(<Backdrop isVisible isScrollable />)
     expect(getByTestId(/backdrop/i)).toHaveStyleRule('position', 'absolute')
   })

@@ -10,7 +10,7 @@ export const separateSizeAndUnit = (size: number | string): [number, string] => 
 
   if (typeof size === 'number') return [size, defaultUnit]
 
-  const fontSizeAsNumberAndUnit = size.match(/(\d*\.\d*)([\s\S]*)/)
+  const fontSizeAsNumberAndUnit = size.match(/^(\d+(?:\.\d+)?)(.*)$/)
   if (!fontSizeAsNumberAndUnit) return [1, 'em']
   const [, value, unit] = fontSizeAsNumberAndUnit
   return [+value, unit || defaultUnit]
