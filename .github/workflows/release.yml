@@ -98,6 +98,9 @@ jobs:
         with:
           # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
           fetch-depth: 0
+          # Pass a personal access token (using our `ct-release-bot` account) to be able to trigger other workflows
+          # https://help.github.com/en/actions/reference/events-that-trigger-workflows#triggering-new-workflows-using-a-personal-access-token
+          # https://github.community/t/action-does-not-trigger-another-on-push-tag-action/17148/8
           token: ${{ secrets.GH_RELEASE_TOKEN }}
 
       - name: Setup Node.js

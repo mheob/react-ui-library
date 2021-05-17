@@ -7,3 +7,9 @@
 
 # tempaltes
 **/template/**
+
+# test
+**/coverage/**
+
+# misc
+**/.prettierrc

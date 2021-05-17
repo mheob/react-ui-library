@@ -34,7 +34,7 @@
     "extends": "@commitlint/config-conventional"
   },
   "lint-staged": {
-    "extends": "./config/.lintstagedrc.js"
+    "extends": "./config/.lintstagedrc"
   },
   "browserslist": [
     "> 2% in DE",
@@ -42,12 +42,12 @@
     "Firefox ESR",
     "not dead"
   ],
-  "prettier": "./config/.prettierrc.js",
+  "prettier": "./config/.prettierrc.json",
   "eslintConfig": {
-    "extends": "./config/.eslintrc.js"
+    "extends": "./config/.eslintrc"
   },
   "stylelint": {
-    "extends": "./config/.stylelintrc.js"
+    "extends": "./config/.stylelintrc"
   },
   "dependencies": {
     "@babel/cli": "^7.13.16",
