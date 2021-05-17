@@ -1,3 +1,3 @@
-# @mheob/{{filename}}
+# @mheob/{{name}}
 
 ⚠️ TO BE DONE!
