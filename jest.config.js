@@ -2,15 +2,12 @@ module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  modulePathIgnorePatterns: [
-    '<rootDir>/storybook-static',
-    '<rootDir>/tools',
-    '[/\\\\]dist[/\\\\].+\\.(js|jsx|ts|tsx)$',
-  ],
   transform: {
     '^.+\\.(ts|tsx)?$': 'ts-jest/dist',
   },
+  modulePathIgnorePatterns: ['<rootDir>/storybook-static', '<rootDir>/tools'],
   transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$'],
+  coveragePathIgnorePatterns: ['<rootDir>/storybook-static', '<rootDir>/tools'],
   setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
   globals: {
     'ts-jest': {
