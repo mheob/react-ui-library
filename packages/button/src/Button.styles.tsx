@@ -43,7 +43,8 @@ export type ButtonStylingProps = {
   textColor?: string
 }
 
-export const ButtonWrapper = styled.button<ButtonStylingProps>`
+export const StyledButton = styled.button<ButtonStylingProps>`
+  -webkit-touch-callout: none;
   display: inline-block;
   align-items: center;
   justify-content: center;
@@ -53,7 +54,7 @@ export const ButtonWrapper = styled.button<ButtonStylingProps>`
   font-weight: normal;
   font-size: ${({ fontSize = '14px' }) =>
     typeof fontSize === 'number' ? `${fontSize}px` : fontSize};
-  ${({ fontFamily }) => fontFamily && `font-family: ${fontFamily}`}
+  ${({ fontFamily }) => fontFamily && `font-family: ${fontFamily};`}
   line-height: normal;
   text-align: center;
   vertical-align: middle;
@@ -61,22 +62,9 @@ export const ButtonWrapper = styled.button<ButtonStylingProps>`
     convertBgColorFromStringToColor(buttonColor).toString()};
   border-radius: ${({ borderRadius = 2 }) => getBorderRadius(borderRadius)};
   cursor: pointer;
+  user-select: none;
 
   &:hover {
     background-color: ${({ buttonColor = '#02a2aa' }) => getValidatedHoverBgColor(buttonColor)};
   }
-
-  span {
-    -webkit-touch-callout: none;
-    margin: 0;
-    color: ${({ textColor, buttonColor = '#02a2aa' }) =>
-      getValidatedTextColor(textColor, buttonColor)};
-    font-size: ${({ fontSize }) => fontSize};
-    font-family: ${({ fontFamily }) => fontFamily};
-    line-height: normal;
-    text-align: center;
-    user-select: none;
-  }
 `
-
-export const ButtonInner = styled.span``

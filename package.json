@@ -21,7 +21,7 @@
     "clean-dist": "lerna exec -- rimraf dist",
     "format": "prettier --write '**/*.{js,jsx,ts,tsx,json,md,yaml,yml}' --ignore-path ./config/.prettierignore",
     "lint": "lerna run lint --stream",
-    "test": "jest --env=jsdom --passWithNoTests --maxWorkers=50%",
+    "test": "jest --env=jsdom --passWithNoTests",
     "test:ci": "jest --runInBand",
     "test:ci:cov": "yarn test:ci --coverage",
     "test:cov": "yarn test --coverage",

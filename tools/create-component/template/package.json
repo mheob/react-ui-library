@@ -1,6 +1,6 @@
 {
   "name": "@mheob/{{name}}",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "{{description}}",
   "keywords": [
     "easyfeedback"
@@ -37,7 +37,7 @@
     "lint:js": "eslint . --ext .js,.jsx,.ts,.tsx --ignore-path ../../config/.eslintignore",
     "lint:style": "stylelint '**/*.{css,scss,js,jsx,ts,tsx}' --ignore-path ../../config/.stylelintignore",
     "lint:types": "tsc --noEmit",
-    "test": "jest --env=jsdom --passWithNoTests --maxWorkers=50%",
+    "test": "jest --env=jsdom --passWithNoTests",
     "test:ci": "jest --runInBand",
     "test:ci:cov": "yarn test:ci --coverage",
     "test:cov": "yarn test --coverage",

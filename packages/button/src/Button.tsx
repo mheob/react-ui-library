@@ -1,7 +1,7 @@
 import { useWebFont } from '@mheob/hooks'
 import { ReactNode } from 'react'
 
-import { ButtonInner, ButtonStylingProps, ButtonWrapper } from './Button.styles'
+import { ButtonStylingProps, StyledButton } from './Button.styles'
 
 export type ButtonProps = {
   /** The content of the button. */
@@ -11,7 +11,7 @@ export type ButtonProps = {
   onClick?: () => void
 
   /** Use an optional web font from the google univers. */
-  webFont?: string | string[]
+  webFont?: string
 } & ButtonStylingProps
 
 /**
@@ -31,15 +31,18 @@ export const Button = ({
   fontSize,
   onClick,
   webFont,
-  textColor = undefined,
+  textColor,
 }: ButtonProps) => {
-  if (webFont) useWebFont(webFont)
+  if (webFont) {
+    useWebFont(webFont)
+    fontFamily = webFont
+  }
 
   const buttonStylingProps = { borderRadius, buttonColor, fontFamily, fontSize, onClick, textColor }
 
   return (
-    <ButtonWrapper {...buttonStylingProps} {...(onClick ? { onClick: onClick } : {})}>
-      <ButtonInner>{children}</ButtonInner>
-    </ButtonWrapper>
+    <StyledButton {...buttonStylingProps} {...(onClick ? { onClick: onClick } : {})}>
+      {children}
+    </StyledButton>
   )
 }

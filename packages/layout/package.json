@@ -1,12 +1,9 @@
 {
-  "name": "@mheob/utils",
+  "name": "@mheob/layout",
   "version": "0.0.0",
-  "description": "Common utilities and types for the easyfeedback components.",
+  "description": "Layout components that give you massive speed",
   "keywords": [
-    "easyfeedback",
-    "hooks",
-    "react",
-    "utilities"
+    "easyfeedback"
   ],
   "homepage": "https://github.com/mheob/react-ui-library#readme",
   "bugs": {
@@ -47,13 +44,18 @@
     "test:watch": "yarn test --watch -u"
   },
   "dependencies": {
-    "webfontloader": "^1.6.28"
+    "react-transition-group": "^4.4.1"
   },
   "devDependencies": {
-    "@types/webfontloader": "^1.6.32",
+    "@emotion/babel-plugin": "^11.3.0",
+    "@emotion/jest": "^11.3.0",
+    "@emotion/react": "^11.4.0",
+    "@emotion/styled": "^11.3.0",
     "react": "^17.0.2"
   },
   "peerDependencies": {
+    "@emotion/react": "^11.4.0",
+    "@emotion/styled": "^11.3.0",
     "react": "^16.13.0 || ^17.0.0"
   },
   "publishConfig": {

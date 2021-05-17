@@ -1,3 +1,3 @@
-# @mheob/{{name}}
+# @mheob/Layout
 
 ⚠️ TO BE DONE!

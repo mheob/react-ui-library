@@ -3,11 +3,10 @@ import WebFont from 'webfontloader'
 
 /**
  * Load the web fonts from the google univers.
- * @param font One or more google fonts
+ * @param font A google fonts
  */
-export const useWebFont = (font: string | string[]) => {
+export const useWebFont = (font: string) => {
   useEffect(() => {
-    const families = Array.isArray(font) ? font : [font]
-    WebFont.load({ google: { families } })
+    WebFont.load({ google: { families: [font] } })
   }, [font])
 }
