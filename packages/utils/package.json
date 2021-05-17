@@ -1,6 +1,6 @@
 {
   "name": "@mheob/utils",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Common utilities and types for the easyfeedback components.",
   "keywords": [
     "easyfeedback",
