@@ -1,6 +1,6 @@
 {
   "name": "@mheob/button",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A React component that is a base button.",
   "keywords": [
     "easyfeedback",
@@ -49,8 +49,8 @@
     "test:watch": "yarn test --watch -u"
   },
   "dependencies": {
-    "@mheob/hooks": "^0.0.0",
-    "@mheob/utils": "^0.0.0",
+    "@mheob/hooks": "^0.0.1",
+    "@mheob/utils": "^0.0.1",
     "color": "^3.1.3"
   },
   "devDependencies": {
