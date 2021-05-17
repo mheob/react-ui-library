@@ -53,7 +53,7 @@ export const ButtonWrapper = styled.button<ButtonStylingProps>`
   font-weight: normal;
   font-size: ${({ fontSize = '14px' }) =>
     typeof fontSize === 'number' ? `${fontSize}px` : fontSize};
-  ${({ fontFamily }) => fontFamily && `font-family: ${fontFamily}`}
+  ${({ fontFamily }) => fontFamily && `font-family: ${fontFamily};`}
   line-height: normal;
   text-align: center;
   vertical-align: middle;
@@ -72,7 +72,7 @@ export const ButtonWrapper = styled.button<ButtonStylingProps>`
     color: ${({ textColor, buttonColor = '#02a2aa' }) =>
       getValidatedTextColor(textColor, buttonColor)};
     font-size: ${({ fontSize }) => fontSize};
-    font-family: ${({ fontFamily }) => fontFamily};
+    ${({ fontFamily }) => fontFamily && `font-family: ${fontFamily};`}
     line-height: normal;
     text-align: center;
     user-select: none;

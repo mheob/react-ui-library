@@ -11,7 +11,7 @@ export type ButtonProps = {
   onClick?: () => void
 
   /** Use an optional web font from the google univers. */
-  webFont?: string | string[]
+  webFont?: string
 } & ButtonStylingProps
 
 /**
@@ -31,9 +31,12 @@ export const Button = ({
   fontSize,
   onClick,
   webFont,
-  textColor = undefined,
+  textColor,
 }: ButtonProps) => {
-  if (webFont) useWebFont(webFont)
+  if (webFont) {
+    useWebFont(webFont)
+    fontFamily = webFont
+  }
 
   const buttonStylingProps = { borderRadius, buttonColor, fontFamily, fontSize, onClick, textColor }
 
