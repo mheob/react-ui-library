@@ -1,6 +1,6 @@
 {
   "name": "@mheob/create-component",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "description": "Tool to create a new component.",
   "homepage": "https://github.com/mheob/react-ui-library#readme",
