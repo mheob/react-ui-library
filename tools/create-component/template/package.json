@@ -43,6 +43,9 @@
     "test:cov": "yarn test --coverage",
     "test:watch": "yarn test --watch -u"
   },
+  "dependencies": {
+    "@mheob/test-utils": "^1.0.0"
+  },
   "devDependencies": {
     "@material-ui/core": "^4.11.4",
     "react": "^17.0.2"

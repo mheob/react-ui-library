@@ -8,7 +8,7 @@ describe('{{filename}} component', () => {
   })
 
   it('renders correctly', () => {
-    const { getByText } = render(<{{filename}} />)
-    expect(getByText('Email')).toBeTruthy()
+    const { getByTestId } = render(<{{filename}} />)
+    expect(getByTestId('{{filename}}')).toBeTruthy()
   })
 })

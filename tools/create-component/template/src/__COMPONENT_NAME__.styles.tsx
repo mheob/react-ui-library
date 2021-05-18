@@ -1,3 +1,5 @@
-import styled from '@emotion/styled'
+import { styled } from '@material-ui/core';
 
-export const {{filename}} = styled.div``
+export const Styled{{filename}} = styled({{filename}})({
+
+})

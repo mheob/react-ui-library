@@ -1,5 +1,5 @@
 export type {{filename}}Props = {};
 
 export const {{filename}} = ({}: {{filename}}Props) => {
-  return ();
+  return (<div data-testid="{{filename}}"></div>);
 }
