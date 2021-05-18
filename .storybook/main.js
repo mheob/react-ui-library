@@ -1,5 +1,3 @@
-const configOverwrites = require('./webpack.config')
-
 module.exports = {
   stories: [
     '../packages/**/stories/*.stories.mdx',
@@ -15,9 +13,4 @@ module.exports = {
       },
     },
   },
-  // i: Overwriting webpack is only a workaround to get `Emotion` running
-  webpackFinal: async (config) => ({
-    ...config,
-    resolve: { ...config.resolve, alias: configOverwrites.resolve.alias },
-  }),
 }

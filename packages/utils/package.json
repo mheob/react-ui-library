@@ -47,10 +47,9 @@
     "test:watch": "yarn test --watch -u"
   },
   "dependencies": {
-    "webfontloader": "^1.6.28"
+    "@mheob/test-utils": "^1.0.0"
   },
   "devDependencies": {
-    "@types/webfontloader": "^1.6.32",
     "react": "^17.0.2"
   },
   "peerDependencies": {

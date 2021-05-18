@@ -15,11 +15,10 @@ module.exports = function (api) {
       },
     ],
     '@babel/preset-typescript',
-    ['@babel/preset-react', { runtime: 'automatic', importSource: '@emotion/react' }],
+    '@babel/preset-react',
   ]
 
   const plugins = [
-    '@emotion',
     // i: The `loose` option fixes output warnings of storybook
     ['@babel/plugin-proposal-class-properties', { loose: true }],
     ['@babel/plugin-proposal-private-methods', { loose: true }],

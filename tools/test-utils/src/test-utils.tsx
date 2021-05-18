@@ -1,12 +1,10 @@
 import '@testing-library/jest-dom/extend-expect'
 
-import { createSerializer } from '@emotion/jest'
 import { RenderOptions, RenderResult, fireEvent, render as rtlRender } from '@testing-library/react'
 import { RunOptions } from 'axe-core'
 import { axe, toHaveNoViolations } from 'jest-axe'
 import * as React from 'react'
 
-expect.addSnapshotSerializer(createSerializer())
 expect.extend(toHaveNoViolations)
 
 type UI = Parameters<typeof rtlRender>[0]
