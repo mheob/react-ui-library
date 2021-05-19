@@ -49,12 +49,22 @@
     "test:cov": "yarn test --coverage",
     "test:watch": "yarn test --watch -u"
   },
+  "dependencies": {
+    "@mheob/test-utils": "^1.0.0",
+    "@mheob/utils": "^1.0.0"
+  },
   "devDependencies": {
-    "@material-ui/core": "^4.11.4",
+    "@chakra-ui/react": "^1.6.2",
+    "@emotion/react": "^11.4.0",
+    "@emotion/styled": "^11.3.0",
+    "framer-motion": "^4.1.17",
     "react": "^17.0.2"
   },
   "peerDependencies": {
-    "@material-ui/core": "^4.11.0",
+    "@chakra-ui/react": "^1.6.0",
+    "@emotion/react": "^11.0.0",
+    "@emotion/styled": "^11.0.0",
+    "framer-motion": "^4.0.0",
     "react": "^16.13.0 || ^17.0.0"
   },
   "publishConfig": {

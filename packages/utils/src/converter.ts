@@ -1,17 +1,18 @@
-// TODO: Add error handling
 /**
- * Splits a size (e.g. 1.5rem) into its value and the unit. If no unit is given, `px` will returned.
- * @todo Add error handling
- * @param size The size which should split
- * @returns The size as number and the unit
+ * Converts `string` to [kebab case](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles).
+ * @param stringToConvert The string to convert.
+ * @returns The kebab cased string.
+ * @example
+ * toKebabCase('camelCase')                    // => 'camel-case'
+ * toKebabCase('some text')                    // => 'some-text'
+ * toKebabCase('AllThe-small Things_together') // => 'all-the-small-thing-together'
  */
-export const separateSizeAndUnit = (size: number | string): [number, string] => {
-  const defaultUnit = 'px'
+export const toKebabCase = (stringToConvert: string) => {
+  const matcher = stringToConvert.match(
+    /[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g
+  )
 
-  if (typeof size === 'number') return [size, defaultUnit]
+  if (!matcher) return ''
 
-  const fontSizeAsNumberAndUnit = size.match(/^(\d+(?:\.\d+)?)(.*)$/)
-  if (!fontSizeAsNumberAndUnit) return [1, 'em']
-  const [, value, unit] = fontSizeAsNumberAndUnit
-  return [+value, unit || defaultUnit]
+  return matcher.map((part) => part.toLowerCase()).join('-')
 }

@@ -1,3 +1,8 @@
+const path = require('path')
+
+const emotionReactPath = path.dirname(require.resolve('@emotion/react/package.json'))
+const emotionStyledPath = path.dirname(require.resolve('@emotion/styled/package.json'))
+
 module.exports = {
   stories: [
     '../packages/**/stories/*.stories.mdx',
@@ -12,5 +17,19 @@ module.exports = {
         esModuleInterop: false,
       },
     },
+  },
+  webpackFinal: async (config) => {
+    return {
+      ...config,
+      resolve: {
+        ...config.resolve,
+        alias: {
+          ...config.resolve.alias,
+          '@emotion/core': emotionReactPath,
+          '@emotion/styled': emotionStyledPath,
+          'emotion-theming': emotionReactPath,
+        },
+      },
+    }
   },
 }
