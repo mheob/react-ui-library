@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "esnext",
-    "lib": ["dom", "esnext"],
+    "target": "ES2017",
+    "module": "ESNext",
+    "lib": ["DOM", "ESNext"],
     "declaration": true,
     "sourceMap": true,
-    "moduleResolution": "node",
+    "moduleResolution": "Node",
     "skipLibCheck": true,
     "strict": true,
     "noFallthroughCasesInSwitch": true,
