@@ -1,37 +1,24 @@
-import { useState } from 'react'
+import { SwitchProps as ChakraSwitchProps } from '@chakra-ui/react'
 
-import { StyledSwitch } from './Switch.styles'
+import { LabelledSwitch } from './LabelledSwitch'
+import { SimpleSwitch } from './SimpleSwitch'
 
 export type SwitchProps = {
   /**
-   * The initial state of the switch.
+   * Defines the string that labels the checkbox element.
+   * Even if it is not displayed on the screen, it is used in the `aria-label` attribute.
    */
-  isChecked?: boolean
+  label: string
 
-  /**
-   * The disabled state of the switch.
-   */
-  isDisabled?: boolean
-
-  /**
-   * Get the checked state in parent component.
-   */
-  onChange: (isActive: boolean) => void
-}
+  /** The position of the label. */
+  labelPlacement?: 'start' | 'end'
+} & ChakraSwitchProps
 
 /**
- * Switches are the preferred way to adjust settings.
- * The option that the switch controls, as well as the state it’s in,
- * should be made clear from the corresponding inline label.
+ * The Switch component is used as an alternative for the Checkbox component.
+ * You can switch between enabled or disabled states.
  */
-export const Switch = ({ isChecked = false, isDisabled = false, onChange }: SwitchProps) => {
-  const [isActive, setIsActive] = useState(isChecked)
-
-  const handleChange = () => {
-    if (isDisabled) return
-    onChange(!isActive)
-    setIsActive(!isActive)
-  }
-
-  return <StyledSwitch checked={isActive} disabled={isDisabled} onChange={handleChange} />
+export const Switch = ({ labelPlacement, ...other }: SwitchProps) => {
+  if (labelPlacement) return <LabelledSwitch {...other} labelPlacement={labelPlacement} />
+  return <SimpleSwitch {...other} />
 }

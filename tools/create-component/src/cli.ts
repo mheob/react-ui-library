@@ -19,7 +19,7 @@ const app = {
   name: packageJson.name,
   version: packageJson.version,
   repoUrl: packageJson.repository.url.replace(/\.git$/, ''),
-  developer: packageJson.author,
+  author: packageJson.author,
 }
 
 const argv = yargs
@@ -39,7 +39,7 @@ const argv = yargs
         type: 'string',
       })
   )
-  .epilogue(`Copyright 2021 by ${app.developer} (${app.repoUrl})`).argv
+  .epilogue(`Copyright 2021 by ${app.author} (${app.repoUrl})`).argv
 
 const template = fs.realpath(join(__dirname, '..', 'template'))
 const filename = argv.appname || ''
@@ -84,21 +84,9 @@ const getPrompts: () => Promise<Answers> = async () => {
         message: 'Application description',
       },
       {
-        type: 'text',
-        name: 'repositoryUrl',
-        message: 'Repository url',
-        initial: app.repoUrl,
-      },
-      {
-        type: 'text',
-        name: 'authorName',
-        message: 'Author name',
-        initial: app.developer,
-      },
-      {
         type: 'toggle',
         name: 'shouldRunBootstrap',
-        message: 'Do you want bootstrap with lerna?',
+        message: 'Do you want bootstrap the repository with lerna?',
         initial: true,
         active: 'yes',
         inactive: 'no',
@@ -106,8 +94,7 @@ const getPrompts: () => Promise<Answers> = async () => {
     ],
     {
       onCancel: () => {
-        // eslint-disable-next-line no-console
-        console.log('Cancelled by the user')
+        console.error('Cancelled by the user')
         process.exit(1)
       },
     }
@@ -116,11 +103,11 @@ const getPrompts: () => Promise<Answers> = async () => {
   const data: Answers = {
     name: _.kebabCase(response.name),
     description: response.description,
-    repositoryUrl: response.repositoryUrl,
-    author: response.authorName,
     filename: _.upperFirst(_.camelCase(response.name)),
     filepath: `${filepath}/${_.kebabCase(response.name)}`,
     shouldRunBootstrap: response.shouldRunBootstrap,
+    repositoryUrl: app.repoUrl,
+    author: app.author,
   }
 
   return data
@@ -141,9 +128,10 @@ export const init = async () => {
   })
 
   progress.add({
-    title: 'Renaming files in the new component folder and add component data',
+    title: 'Prepare copied files and add component data',
     task: (ctx: { data: Answers }) => {
-      const replaceString = '__COMPONENT_NAME__'
+      const replaceComponentString = '__COMPONENT_NAME__'
+      const replaceConfigString = '__TSCONFIG__'
       glob(ctx.data.filepath + '/**/*', (err, files) => {
         if (err) return
         files.forEach((file) => {
@@ -151,8 +139,11 @@ export const init = async () => {
           const content = fs.readFileSync(file)
           const newFile = Mustache.render(content.toString(), ctx.data)
           fs.outputFileSync(file, newFile)
-          if (!file.match(replaceString)) return
-          fs.renameSync(file, file.replace(replaceString, ctx.data.filename))
+          if (file.match(replaceConfigString)) {
+            fs.renameSync(file, file.replace(replaceConfigString, 'tsconfig.json'))
+          }
+          if (!file.match(replaceComponentString)) return
+          fs.renameSync(file, file.replace(replaceComponentString, ctx.data.filename))
         })
       })
     },
