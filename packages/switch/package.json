@@ -1,6 +1,6 @@
 {
   "name": "@mheob/switch",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "A React component to view and switch between on or off states.",
   "keywords": [
     "easyfeedback",
