@@ -3261,6 +3261,21 @@
     schema-utils "^2.6.5"
     source-map "^0.7.3"
 
+"@pmmmwh/react-refresh-webpack-plugin@^0.5.1":
+  version "0.5.5"
+  resolved "https://registry.yarnpkg.com/@pmmmwh/react-refresh-webpack-plugin/-/react-refresh-webpack-plugin-0.5.5.tgz#e77aac783bd079f548daa0a7f080ab5b5a9741ca"
+  integrity sha512-RbG7h6TuP6nFFYKJwbcToA1rjC1FyPg25NR2noAZ0vKI+la01KTSRPkuVPE+U88jXv7javx2JHglUcL1MHcshQ==
+  dependencies:
+    ansi-html-community "^0.0.8"
+    common-path-prefix "^3.0.0"
+    core-js-pure "^3.8.1"
+    error-stack-parser "^2.0.6"
+    find-up "^5.0.0"
+    html-entities "^2.1.0"
+    loader-utils "^2.0.0"
+    schema-utils "^3.0.0"
+    source-map "^0.7.3"
+
 "@popperjs/core@2.4.4":
   version "2.4.4"
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.4.4.tgz#11d5db19bd178936ec89cd84519c4de439574398"
@@ -3877,18 +3892,30 @@
   dependencies:
     core-js "^3.8.2"
 
-"@storybook/preset-create-react-app@^3.1.7":
-  version "3.1.7"
-  resolved "https://registry.yarnpkg.com/@storybook/preset-create-react-app/-/preset-create-react-app-3.1.7.tgz#e48df77768bdcc4863e3918c11965c45e4110ac8"
-  integrity sha512-SR+HGSWCrhHA5sszuIHJYdh2tWNi/zu858WB5RM74OBW4ogo8Bv4/7td4p53eWbdm0zBDbnKcrBmwRrAYqwL9Q==
+"@storybook/preset-create-react-app@^4.0.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@storybook/preset-create-react-app/-/preset-create-react-app-4.1.0.tgz#8f2dc1d5ac07b806b7a3fa4f57654c21150a9821"
+  integrity sha512-xMQlWhT8qHBnfrep4g+f2UFndpAiYnhkilHaf081eA9hsnSlj7Z9WKgHC5n09jBhfZpgL5Zf7Mx3lNwhHoEXBw==
   dependencies:
-    "@pmmmwh/react-refresh-webpack-plugin" "^0.4.3"
+    "@pmmmwh/react-refresh-webpack-plugin" "^0.5.1"
+    "@storybook/react-docgen-typescript-plugin" canary
     "@types/babel__core" "^7.1.7"
-    "@types/webpack" "^4.41.13"
     babel-plugin-react-docgen "^4.1.0"
-    pnp-webpack-plugin "^1.6.4"
-    react-docgen-typescript-plugin "^0.6.2"
-    semver "^7.3.2"
+    pnp-webpack-plugin "^1.7.0"
+    semver "^7.3.5"
+
+"@storybook/react-docgen-typescript-plugin@canary":
+  version "1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0"
+  resolved "https://registry.yarnpkg.com/@storybook/react-docgen-typescript-plugin/-/react-docgen-typescript-plugin-1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0.tgz#3103532ff494fb7dc3cf835f10740ecf6a26c0f9"
+  integrity sha512-eVg3BxlOm2P+chijHBTByr90IZVUtgRW56qEOLX7xlww2NBuKrcavBlcmn+HH7GIUktquWkMPtvy6e0W0NgA5w==
+  dependencies:
+    debug "^4.1.1"
+    endent "^2.0.1"
+    find-cache-dir "^3.3.1"
+    flat-cache "^3.0.4"
+    micromatch "^4.0.2"
+    react-docgen-typescript "^2.1.1"
+    tslib "^2.0.0"
 
 "@storybook/react@^6.2.9":
   version "6.2.9"
@@ -4484,7 +4511,7 @@
     "@types/source-list-map" "*"
     source-map "^0.7.3"
 
-"@types/webpack@^4.41.13", "@types/webpack@^4.41.26", "@types/webpack@^4.41.8":
+"@types/webpack@^4.41.26", "@types/webpack@^4.41.8":
   version "4.41.28"
   resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-4.41.28.tgz#0069a2159b7ad4d83d0b5801942c17d54133897b"
   integrity sha512-Nn84RAiJjKRfPFFCVR8LC4ueTtTdfWAMZ03THIzZWRJB+rX24BD3LqPSFnbMscWauEsT4segAsylPDIaZyZyLQ==
@@ -4914,6 +4941,11 @@ ansi-escapes@^4.2.1, ansi-escapes@^4.3.0, ansi-escapes@^4.3.1:
   integrity sha512-gKXj5ALrKWQLsYG9jlTRmR/xKluxHV+Z9QEwNIgCfM1/uwPMCuzVVnh5mwTd+OuBZcwSIMbqssNWRm1lE51QaQ==
   dependencies:
     type-fest "^0.21.3"
+
+ansi-html-community@^0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/ansi-html-community/-/ansi-html-community-0.0.8.tgz#69fbc4d6ccbe383f9736934ae34c3f8290f1bf41"
+  integrity sha512-1APHAyr3+PCamwNw3bXCPp4HFLONZt/yIH0sZp0/469KWNTEy+qN5jQ3GVX6DMZ1UXAi34yVwtTeaG/HpBuuzw==
 
 ansi-html@0.0.7, ansi-html@^0.0.7:
   version "0.0.7"
@@ -6380,6 +6412,11 @@ commander@^7.2.0:
   resolved "https://registry.yarnpkg.com/commander/-/commander-7.2.0.tgz#a36cb57d0b501ce108e4d20559a150a391d97ab7"
   integrity sha512-QrWXB+ZQSVPmIWIhtEO9H+gwHaMGYiF5ChvoJ+K9ZGHG/sVsa6yiesAD1GC/x46sET00Xlwo1u49RVVVzvcSkw==
 
+common-path-prefix@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/common-path-prefix/-/common-path-prefix-3.0.0.tgz#7d007a7e07c58c4b4d5f433131a19141b29f11e0"
+  integrity sha512-QE33hToZseCH3jS0qN96O/bSh3kaw/h+Tq7ngyY9eWDUnTlTNUyqfqvCXioLe5Na5jFsL78ra/wuBU4iuEgd4w==
+
 commondir@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/commondir/-/commondir-1.0.1.tgz#ddd800da0c66127393cca5950ea968a3aaf1253b"
@@ -6621,6 +6658,11 @@ core-js-pure@^3.0.0, core-js-pure@^3.8.2:
   version "3.12.1"
   resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.12.1.tgz#934da8b9b7221e2a2443dc71dfa5bd77a7ea00b8"
   integrity sha512-1cch+qads4JnDSWsvc7d6nzlKAippwjUlf6vykkTLW53VSV+NkE6muGBToAjEA8pG90cSfcud3JgVmW2ds5TaQ==
+
+core-js-pure@^3.8.1:
+  version "3.22.2"
+  resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.22.2.tgz#c10bffdc3028d25c2aae505819a05543db61544f"
+  integrity sha512-Lb+/XT4WC4PaCWWtZpNPaXmjiNDUe5CJuUtbkMrIM1kb1T/jJoAIp+bkVP/r5lHzMr+ZAAF8XHp7+my6Ol0ysQ==
 
 core-js@^3.0.4, core-js@^3.6.5, core-js@^3.8.2:
   version "3.12.1"
@@ -9178,6 +9220,11 @@ html-entities@^1.2.0, html-entities@^1.2.1:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-1.4.0.tgz#cfbd1b01d2afaf9adca1b10ae7dffab98c71d2dc"
   integrity sha512-8nxjcBcd8wovbeKx7h3wTji4e6+rhaVuPNpMqwWgnHh+N9ToqsCs6XztWRBPQ+UtzsoMAdKZtUENoVzU/EMtZA==
+
+html-entities@^2.1.0:
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-2.3.3.tgz#117d7626bece327fc8baace8868fa6f5ef856e46"
+  integrity sha512-DV5Ln36z34NNTDgnz0EWGBLZENelNAtkiFA4kyNOG2tDI6Mz1uSWiq1wAKdyjnJwyDiDO7Fa2SO1CTxPXL8VxA==
 
 html-escaper@^2.0.0:
   version "2.0.2"
@@ -12908,10 +12955,17 @@ please-upgrade-node@^3.2.0:
   dependencies:
     semver-compare "^1.0.0"
 
-pnp-webpack-plugin@1.6.4, pnp-webpack-plugin@^1.6.4:
+pnp-webpack-plugin@1.6.4:
   version "1.6.4"
   resolved "https://registry.yarnpkg.com/pnp-webpack-plugin/-/pnp-webpack-plugin-1.6.4.tgz#c9711ac4dc48a685dabafc86f8b6dd9f8df84149"
   integrity sha512-7Wjy+9E3WwLOEL30D+m8TSTF7qJJUJLONBnwQp0518siuMxUQUbgZwssaFX+QKlZkjHZcw/IpZCt/H0srrntSg==
+  dependencies:
+    ts-pnp "^1.1.6"
+
+pnp-webpack-plugin@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/pnp-webpack-plugin/-/pnp-webpack-plugin-1.7.0.tgz#65741384f6d8056f36e2255a8d67ffc20866f5c9"
+  integrity sha512-2Rb3vm+EXble/sMXNSu6eoBx8e79gKqhNq9F5ZWW6ERNCTE/Q0wQNne5541tE5vKjfM8hpNCYL+LGc1YTfI0dg==
   dependencies:
     ts-pnp "^1.1.6"
 
@@ -13546,6 +13600,11 @@ react-docgen-typescript@^1.20.5:
   version "1.22.0"
   resolved "https://registry.yarnpkg.com/react-docgen-typescript/-/react-docgen-typescript-1.22.0.tgz#00232c8e8e47f4437cac133b879b3e9437284bee"
   integrity sha512-MPLbF8vzRwAG3GcjdL+OHQlhgtWsLTXs+7uJiHfEeT3Ur7IsZaNYqRTLQ9sj2nB6M6jylcPCeCmH7qbszJmecg==
+
+react-docgen-typescript@^2.1.1:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/react-docgen-typescript/-/react-docgen-typescript-2.2.2.tgz#4611055e569edc071204aadb20e1c93e1ab1659c"
+  integrity sha512-tvg2ZtOpOi6QDwsb3GZhOjDkkX0h8Z2gipvTg6OVMUyoYoURhEiRNePT8NZItTVCDh39JJHnLdfCOkzoLbFnTg==
 
 react-docgen@^5.0.0:
   version "5.4.0"
