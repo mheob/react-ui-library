@@ -47,10 +47,10 @@
     "@mheob/test-utils": "^1.0.0"
   },
   "devDependencies": {
-    "react": "^17.0.2"
+    "react": "^18.0.0"
   },
   "peerDependencies": {
-    "react": "^16.13.0 || ^17.0.0"
+    "react": "^18.0.0"
   },
   "publishConfig": {
     "access": "public",
