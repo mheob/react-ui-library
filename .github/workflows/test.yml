@@ -10,18 +10,14 @@ jobs:
     name: Run linter
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node: [14, 16]
-
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
 
-      - name: Setup Node.js ${{ matrix.node-version }}
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 16
 
       - name: Get yarn cache
         id: yarn-cache
@@ -45,18 +41,14 @@ jobs:
     name: Run tests
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node: [14, 16]
-
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
 
-      - name: Setup Node.js ${{ matrix.node-version }}
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 16
 
       - name: Get yarn cache
         id: yarn-cache
