@@ -2,7 +2,7 @@
 
 import { join } from 'path'
 
-import execa from 'execa'
+import { execa } from 'execa'
 import fs from 'fs-extra'
 import glob from 'glob'
 import Listr from 'listr'
@@ -22,7 +22,7 @@ const app = {
   author: packageJson.author,
 }
 
-const argv = yargs
+const argv = await yargs
   .scriptName(app.name)
   .version(app.version)
   .strict()
